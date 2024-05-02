@@ -11,7 +11,7 @@ test("changes to 'dark' mode when the button is clicked", () => {
   const { container } = render(<App />);
   expect(container.querySelector(".light")).toBeInTheDocument();
 
-  fireEvent.click(screen.getByText(/ Mode/));
+  fireEvent.click(screen.getByTestId("dark-mode-button"));
 
   expect(container.querySelector(".dark")).toBeInTheDocument();
 });
@@ -20,11 +20,11 @@ test("changes back to 'light' mode when the button is clicked twice", () => {
   const { container } = render(<App />);
   expect(container.querySelector(".light")).toBeInTheDocument();
 
-  fireEvent.click(screen.getByText(/ Mode/));
+  fireEvent.click(screen.getByTestId("dark-mode-button"));
 
   expect(container.querySelector(".dark")).toBeInTheDocument();
 
-  fireEvent.click(screen.getByText(/ Mode/));
+  fireEvent.click(screen.getByTestId("dark-mode-button"));
 
   expect(container.querySelector(".light")).toBeInTheDocument();
 });
